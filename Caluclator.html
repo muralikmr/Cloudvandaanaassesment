@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        .main{
+            background-color: blue;
+            height: 100vh; width: 100vw;
+        }
+        .calculator{
+            background-color: black;
+            border-radius: 10px;
+            height: 55vh; width: 18vw ;
+            margin: auto;
+            padding: 15px;
+        }
+        .body{
+            margin-top: 20px;
+        }
+        .btn, #cancel, #equals{
+            height: 35px;
+            width: 35px;
+            margin: 5px;
+            border-radius: 2px;
+            font-weight: bold;
+        }
+        #screen{
+            width: 190px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 3px;
+            outline: none;
+            background-color: rgb(200, 231, 221);
+        }
+        .cal-inner{
+            width: 200px;
+            margin: auto; 
+            padding: 20px;
+        }
+        .display{
+            text-align: center;
+        }
+        #cancel{
+            background-color: orangered;
+        }
+        #equals{
+            background-color: orangered;
+            width: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Calculator</h1>
+        <div class="calculator">
+           <div class="cal-inner">
+            <div class="display">
+                <input readonly id="screen" type="text" placeholder="Screen">
+            </div>
+            <div class="body">
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">+</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">-</button>
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">*</button>
+                <button class="btn">0</button>
+                <button class="btn">00</button>
+                <button class="btn">.</button>
+                <button class="btn">/</button>
+                <button id="cancel">C</button>
+                <button id="equals">=</button>
+            </div>
+           </div>
+           
+        </div>
+    </div>
+    <script>
+         let btnElem = document.getElementsByClassName("btn")
+let screen = document.getElementById("screen")
+let cancelBtn = document.getElementById("cancel")
+let equalsBtn = document.getElementById("equals")
+
+
+for( let i=0; i<btnElem.length; i++){
+    btnElem[i].addEventListener("click" , () =>{
+        screen.value += btnElem[i].innerText
+    })
+}
+cancelBtn.addEventListener("click" , () =>{
+    screen.value =""
+})
+equalsBtn.addEventListener("click" , () =>{
+    screen.value = eval(screen.value);
+})
+
+    </script>
+</body>
+</html>
